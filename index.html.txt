@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+
+<title>Care Reminders</title>
+
+</head>
+
+<body>
+
+<h2>Daily Care Reminders ❤️</h2>
+
+<div id="notification" class="hidden">
+<div class="card">
+<div class="title">Reminder</div>
+<div id="message"></div>
+</div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

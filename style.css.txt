@@ -1,0 +1,37 @@
+body{
+font-family:-apple-system,BlinkMacSystemFont;
+background:#f2f2f7;
+text-align:center;
+margin-top:100px;
+}
+
+#notification{
+position:fixed;
+top:60px;
+left:50%;
+transform:translateX(-50%);
+z-index:1000;
+}
+
+.card{
+background:white;
+padding:18px;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+min-width:260px;
+animation:slideDown 0.4s ease;
+}
+
+.title{
+font-weight:600;
+margin-bottom:6px;
+}
+
+.hidden{
+display:none;
+}
+
+@keyframes slideDown{
+from{transform:translateY(-20px);opacity:0;}
+to{transform:translateY(0);opacity:1;}
+}

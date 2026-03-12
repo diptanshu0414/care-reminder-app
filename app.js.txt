@@ -1,0 +1,58 @@
+const notification = document.getElementById("notification");
+const message = document.getElementById("message");
+
+let reminders=[];
+let lastTrigger="";
+
+const API_URL="https://api.sheetbest.com/sheets/d03a2a41-fd3c-4fda-b6d7-61fcaf9fea53";
+
+async function loadReminders(){
+
+const res=await fetch(API_URL);
+reminders=await res.json();
+
+}
+
+function showReminder(text){
+
+message.innerText=text;
+
+notification.classList.remove("hidden");
+
+if(navigator.vibrate){
+navigator.vibrate(200);
+}
+
+setTimeout(()=>{
+notification.classList.add("hidden");
+},10000);
+
+}
+
+function checkReminders(){
+
+const now=new Date();
+
+const h=String(now.getHours()).padStart(2,'0');
+const m=String(now.getMinutes()).padStart(2,'0');
+
+const current=h+":"+m;
+
+if(current===lastTrigger) return;
+
+reminders.forEach(r=>{
+
+if(r.time===current){
+
+showReminder(r.message);
+lastTrigger=current;
+
+}
+
+});
+
+}
+
+loadReminders();
+
+setInterval(checkReminders,60000);
